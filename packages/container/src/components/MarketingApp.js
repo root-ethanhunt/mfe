@@ -12,15 +12,7 @@ console.log(KuchBhi);
 
 
 function MarketingApp() {
-    // const ref = useRef(null);
-
-    // useEffect(()=>{
-    //     MarketingAppcomponents(ref.current);
-    // },[])
   return (
-    // <div ref ={ref}/>
-    // <div>hii</div>
-    //  <MarketingAppcomponents/>
     <MarketingAppcomponents1/>
   )
 }

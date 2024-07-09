@@ -1,6 +1,6 @@
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import { StylesProvider } from '@material-ui/core/styles';
-
+// import { StylesProvider } from '@mui/material/styles';
+// import { StylesProvider, ThemeProvider, createTheme } from '@mui/material/styles';
 import Landing from './components/Landing';
 import Pricing from './components/Pricing';
 import Some from './components/Jsjl'
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <div>
-      <StylesProvider>
+      {/* <StylesProvider > */}
         <BrowserRouter>
           <Routes>
             <Route exact path="/pricing" element={<Pricing/>} />
@@ -18,7 +18,7 @@ function App() {
             <Route path="/some" element={<Some/>} />
           </Routes>
         </BrowserRouter>
-      </StylesProvider>
+      {/* </StylesProvider> */}
     </div>
     </div>
   );

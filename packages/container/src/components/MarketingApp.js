@@ -12,7 +12,7 @@ console.log(KuchBhi);
 
 
 function MarketingApp() {
-    const ref = useRef(null);
+    // const ref = useRef(null);
 
     // useEffect(()=>{
     //     MarketingAppcomponents(ref.current);
@@ -21,7 +21,8 @@ function MarketingApp() {
     // <div ref ={ref}/>
     // <div>hii</div>
     //  <MarketingAppcomponents/>
-    <MarketingAppcomponents1/>
+    // <MarketingAppcomponents1/>
+    <KuchBhi/>
   )
 }
 

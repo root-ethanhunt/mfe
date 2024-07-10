@@ -1,9 +1,7 @@
 const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 const commonConfig = require('./webpack.common');
 const { dependencies } = require('../package.json');
-const path = require('path');
 
 const domain = process.env.PRODUCTION_DOMAIN;
 

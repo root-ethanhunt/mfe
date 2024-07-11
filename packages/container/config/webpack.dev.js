@@ -30,10 +30,10 @@ const devConfig = {
                   shareScope: 'default',
                   requiredVersion: dependencies.react,
                 },
-                // 'react-dom': {
-                //   singleton: true,
-                //   requiredVersion: dependencies['react-dom'],
-                // },
+                'react-dom': {
+                  singleton: true,
+                  requiredVersion: dependencies['react-dom'],
+                },
               },
         }),
     ]

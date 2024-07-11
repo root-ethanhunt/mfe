@@ -19,7 +19,19 @@ const prodconfig = {
                 marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
                 shared: `shared@${domain}/shared/latest/remoteEntry.js`
             },
-            shared: dependencies.dependencies
+            shared: {
+                ...dependencies,
+                react: {
+                  singleton: true,
+                  import: 'react',
+                  shareScope: 'default',
+                  requiredVersion: dependencies.react,
+                },
+                'react-dom': {
+                  singleton: true,
+                  requiredVersion: dependencies['react-dom'],
+                },
+              },
         })
     ]
 }

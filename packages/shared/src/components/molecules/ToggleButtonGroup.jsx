@@ -9,7 +9,6 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Menu from "../atom/Menu"
 
 
-
 export default function VerticalToggleButtons() {
   const [view, setView] = React.useState('list');
 

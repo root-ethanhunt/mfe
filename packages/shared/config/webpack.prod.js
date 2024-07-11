@@ -23,7 +23,19 @@ const prodconfig = {
                 './Header': "./src/components/organisms/Header",
                 './SubHeader': "./src/components/organisms/SubHeader",
             },
-            shared: dependencies.dependencies
+            shared: {
+                ...dependencies,
+                react: {
+                  singleton: true,
+                  import: 'react',
+                  shareScope: 'default',
+                  requiredVersion: dependencies.react,
+                },
+                'react-dom': {
+                  singleton: true,
+                  requiredVersion: dependencies['react-dom'],
+                },
+              },
         })
     ]
 }

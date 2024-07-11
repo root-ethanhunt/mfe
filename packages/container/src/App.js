@@ -1,10 +1,13 @@
 import React from "react";
-import Header from "shared/Header";
-import SubHeader from "shared/SubHeader";
+
+// import Header from "shared/Header";
+// import SubHeader from "shared/SubHeader";
 // import {mount} from 'marketing/MarketingApp';
 // import  MarketingApp  from "./components/MarketingApp.js";
 import ErrorBoundary from "./ErrorBoundry.js";
 // import ErrorBoundary from "./ErrorBoundary";
+const Header = React.lazy(() => import("shared/Header"));
+const SubHeader = React.lazy(() => import("shared/SubHeader"));
 const MarketingApp = React.lazy(() => import("./components/MarketingApp.js"));
 
 // const RemoteButton = React.lazy(() => import("Remote/Button"));

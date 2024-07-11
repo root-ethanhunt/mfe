@@ -5,22 +5,25 @@ const { dependencies } = require('../package.json');
 const path = require('path');
 
 const devConfig = {
-    // entry: './src/index.js',
+    entry: './src/index.js',
     mode: 'development',
     devServer: {
-        // contentBase: path.join(__dirname, 'dist'),
-        port: 8080,
+        // contentBase: path.join(__dirname, 'build'),
+        port: 8083,
         // historyApiFallback: {
         //     index: 'index.html'
         // }
+        // static: './build'
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'container',
+            name: 'shared',
             filename: 'remoteEntry.js',
-            remotes: {
-                marketing: 'marketing@http://localhost:8081/remoteEntry.js',
-                shared: 'shared@http://localhost:8083/remoteEntry.js'
+            exposes: {
+                './SharedApp': './src/bootstrap',
+                './SharedApp1': './src/App',
+                './Header': "./src/components/organisms/Header",
+                './SubHeader': "./src/components/organisms/SubHeader",
             },
             shared: {
                 ...dependencies,
@@ -30,10 +33,10 @@ const devConfig = {
                   shareScope: 'default',
                   requiredVersion: dependencies.react,
                 },
-                // 'react-dom': {
-                //   singleton: true,
-                //   requiredVersion: dependencies['react-dom'],
-                // },
+                'react-dom': {
+                  singleton: true,
+                  requiredVersion: dependencies['react-dom'],
+                },
               },
         }),
     ]

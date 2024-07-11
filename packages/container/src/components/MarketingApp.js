@@ -21,8 +21,8 @@ function MarketingApp() {
     // <div ref ={ref}/>
     // <div>hii</div>
     //  <MarketingAppcomponents/>
-    // <MarketingAppcomponents1/>
-    <KuchBhi/>
+     <MarketingAppcomponents1/>
+    // <KuchBhi/>
   )
 }
 

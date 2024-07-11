@@ -12,7 +12,7 @@ const MarketingApp = React.lazy(() => import("./components/MarketingApp.js"));
 
 // const RemoteButton = React.lazy(() => import("Remote/Button"));
 console.log(Header);
-//  console.log(mount);
+console.log(SubHeader);
 function App() {
   return (
     <div className="App">

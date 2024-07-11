@@ -11,7 +11,7 @@ export default function TextFieldSizes() {
         // height: 20,
       }}
     >
-      <TextField fullWidth label="Search..." id="fullWidth"  size="small"/>
+      <TextField fullWidth label="Search..." id="fullWidth"  size="small" />
     </Box>
   );
 }

@@ -1,8 +1,10 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ViewListIcon from '@mui/icons-material/ViewList';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import IconButton from "@mui/material/IconButton";
+import ViewListIcon from "@mui/icons-material/ViewList";
+import ListIcon from "@mui/icons-material/List";
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -16,23 +18,35 @@ export default function BasicMenu() {
 
   return (
     <div>
-      <Button
+      {/* <Button
         id="basic-button"
-        size="small"
+        // size="small"
+        sx={{ width: 20, height: 20 }}
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
+        color="primary"
       >
-        <ViewListIcon />
-      </Button>
+        <ListIcon size="small"/>
+        Dashboard
+      </Button> */}
+
+      <IconButton
+        aria-label="delete"
+        size="small"
+        sx={{ width: 20, height: 20 }}
+        onClick={handleClick}
+      >
+        <ListIcon size="small" />
+      </IconButton>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          "aria-labelledby": "basic-button",
         }}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>

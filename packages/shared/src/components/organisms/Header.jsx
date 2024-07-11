@@ -19,7 +19,7 @@ import BedtimeIcon from '@mui/icons-material/Bedtime';
 export default function AutoGrid() {
   return (
     // <Box sx={{ flexGrow: 1 }}  alignItems="center">
-      <Grid container spacing={30} direction="row" justifyContent="center" alignItems="flex-start">
+      <Grid container spacing={3} direction="row" justifyContent="space-evenly" alignItems="center">
         <Grid item>
           <h3>Logo</h3>
         </Grid>

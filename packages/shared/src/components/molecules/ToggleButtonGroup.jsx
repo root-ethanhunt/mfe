@@ -1,16 +1,17 @@
-import * as React from 'react';
-import ViewListIcon from '@mui/icons-material/ViewList';
-import ViewModuleIcon from '@mui/icons-material/ViewModule';
-import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
-import Avatar from '@mui/material/Avatar';
-import PersonIcon from '@mui/icons-material/Person';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import Menu from "../atom/Menu"
-
+import * as React from "react";
+import ViewListIcon from "@mui/icons-material/ViewList";
+import ViewModuleIcon from "@mui/icons-material/ViewModule";
+import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
+import Avatar from "@mui/material/Avatar";
+import NightsStayIcon from "@mui/icons-material/NightsStay";
+import Grid from "@mui/material/Grid";
+import PersonIcon from "@mui/icons-material/Person";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import Menu from "../atom/Menu";
 
 export default function VerticalToggleButtons() {
-  const [view, setView] = React.useState('list');
+  const [view, setView] = React.useState("list");
 
   const handleChange = (event, nextView) => {
     setView(nextView);
@@ -18,21 +19,28 @@ export default function VerticalToggleButtons() {
 
   return (
     <ToggleButtonGroup
-      // orientation="vertical"
       value={view}
       exclusive
-       size="small"
+      size="small"
       onChange={handleChange}
     >
       <ToggleButton value="list" aria-label="list">
-        {/* <ViewListIcon /> */}
-        {/* <PersonIcon/> */}
-        <Menu/>
+        <NightsStayIcon />
       </ToggleButton>
-      <ToggleButton value="module" aria-label="module">
-        {/* <ViewModuleIcon /> */}
-        {/* <PersonIcon/> */}
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg"  sx={{ width: 24, height: 24 }}/>
+      <ToggleButton value="list" aria-label="list">
+        <Grid container spacing={2}>
+          <Grid item>
+            {" "}
+            <Menu />
+          </Grid>
+          <Grid item>
+            <Avatar
+              alt="Remy Sharp"
+              src="/static/images/avatar/1.jpg"
+              sx={{ width: 20, height: 20 }}
+            />
+          </Grid>
+        </Grid>
       </ToggleButton>
     </ToggleButtonGroup>
   );

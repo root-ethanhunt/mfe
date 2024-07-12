@@ -86,7 +86,7 @@ function App() {
       <ItemInfo/>
       {/* <Cart items={cartItems} onRemoveItem={handleRemoveItem} /> */}
       <Cart items={cartItems} onRemoveItem={handleRemoveItem} onQuantityChange={handleQuantityChange} />
-      {/* <FullProducts/> */}
+      <FullProducts/>
       
     </div>
   );

@@ -7,8 +7,9 @@ import React from "react";
 import ErrorBoundary from "./ErrorBoundry.js";
 // import ErrorBoundary from "./ErrorBoundary";
 const Header = React.lazy(() => import("shared/Header"));
-const SubHeader = React.lazy(() => import("shared/SubHeader"));
-const MarketingApp = React.lazy(() => import("./components/MarketingApp.js"));
+const SubHeader = React.lazy(() => import("shared/SubHeader2"));
+const Products =  React.lazy(() => import("shared/FullProducts"));
+// const MarketingApp = React.lazy(() => import("./components/MarketingApp.js"));
 
 // const RemoteButton = React.lazy(() => import("Remote/Button"));
 console.log(Header);
@@ -24,7 +25,8 @@ function App() {
           <Header />
           <hr></hr>
           <SubHeader />
-          <MarketingApp />
+          <Products/>
+          {/* <MarketingApp /> */}
         </ErrorBoundary>
       </React.Suspense>
     </div>

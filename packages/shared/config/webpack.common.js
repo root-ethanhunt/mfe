@@ -39,6 +39,8 @@ module.exports = {
             './SharedApp1': './src/App',
             './Header': "./src/components/organisms/Header",
             './SubHeader': "./src/components/organisms/SubHeader",
+            './SubHeader2': "./src/components/organisms/SubHeader2",
+            './FullProducts': './src/components/organisms/FullProducts'
         },
         shared: {
             ...dependencies,

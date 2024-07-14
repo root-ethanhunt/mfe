@@ -74,6 +74,7 @@ function App() {
   const handleQuantityChange = (id, quantity) => {
     setCartItems(cartItems.map((item) => item.id === id ? { ...item, quantity } : item));
   };
+  
   return (
     <div className="App">
       <TextField/>

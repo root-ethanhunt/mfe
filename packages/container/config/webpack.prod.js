@@ -19,6 +19,11 @@ const prodconfig = {
                 marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
                 shared: `shared@${domain}/shared/latest/remoteEntry.js`
             },
+            exposes: {
+              "./useStore": "./src/hooks/useStore",
+              "./useStoreSelector": "./src/stores/useStoreSelector",
+              "./StoreProvider": "./src/hooks/StoreProvider",
+            },
             shared: {
                 ...dependencies,
                 react: {

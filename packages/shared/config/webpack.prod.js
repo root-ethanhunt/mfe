@@ -17,13 +17,17 @@ const prodconfig = {
         new ModuleFederationPlugin({
             name: 'shared',
             filename: 'remoteEntry.js',
+            remotes: {
+              marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
+              container: `container@${domain}/container/latest/remoteEntry.js`,
+          },
             exposes: {
                 './SharedApp': './src/bootstrap',
                 './SharedApp1': './src/App',
                 './Header': "./src/components/organisms/Header",
                 './SubHeader': "./src/components/organisms/SubHeader",
                 './SubHeader2': "./src/components/organisms/SubHeader2",
-                './FullProducts': './src/components/organisms/FullProducts'
+                './FullProducts': './src/components/organisms/FullProducts',
             },
             shared: {
                 ...dependencies,

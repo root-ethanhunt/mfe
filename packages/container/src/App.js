@@ -9,11 +9,14 @@ import ErrorBoundary from "./ErrorBoundry.js";
 const Header = React.lazy(() => import("shared/Header"));
 const SubHeader = React.lazy(() => import("shared/SubHeader2"));
 const Products =  React.lazy(() => import("shared/FullProducts"));
-// const MarketingApp = React.lazy(() => import("./components/MarketingApp.js"));
+const MarketingApp = React.lazy(() => import("./components/MarketingApp.js"));
+const Counter = React.lazy(() => import("marketing/Counter"));
+const Counter2 = React.lazy(() => import("./components/Counter.jsx"));
 
 // const RemoteButton = React.lazy(() => import("Remote/Button"));
 console.log(Header);
 console.log(SubHeader);
+console.log('Counter',Counter)
 
 
 function App() {
@@ -22,11 +25,14 @@ function App() {
       {/* <h1>container</h1> */}
       <React.Suspense fallback="Loading Button">
         <ErrorBoundary>
-          <Header />
+          {/* <Header /> */}
           <hr></hr>
           <SubHeader />
           <Products/>
           {/* <MarketingApp /> */}
+          <Counter/>
+          <hr/>
+          <Counter2/>
         </ErrorBoundary>
       </React.Suspense>
     </div>

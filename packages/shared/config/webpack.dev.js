@@ -15,31 +15,37 @@ const devConfig = {
         // }
         // static: './build'
     },
-    // plugins: [
-    //     new ModuleFederationPlugin({
-    //         name: 'shared',
-    //         filename: 'remoteEntry.js',
-    //         exposes: {
-    //             './SharedApp': './src/bootstrap',
-    //             './SharedApp1': './src/App',
-    //             './Header': "./src/components/organisms/Header",
-    //             './SubHeader': "./src/components/organisms/SubHeader",
-    //         },
-    //         shared: {
-    //             ...dependencies,
-    //             react: {
-    //               singleton: true,
-    //               import: 'react',
-    //               shareScope: 'default',
-    //               requiredVersion: dependencies.react,
-    //             },
-    //             'react-dom': {
-    //               singleton: true,
-    //               requiredVersion: dependencies['react-dom'],
-    //             },
-    //           },
-    //     }),
-    // ]
+    plugins: [
+        new ModuleFederationPlugin({
+            name: 'shared',
+            filename: 'remoteEntry.js',
+            remotes: {
+                marketing: 'marketing@http://localhost:8081/remoteEntry.js',
+                container: 'container@http://localhost:8080/remoteEntry.js'
+            },
+            exposes: {
+            './SharedApp': './src/bootstrap',
+            './SharedApp1': './src/App',
+            './Header': "./src/components/organisms/Header",
+            './SubHeader': "./src/components/organisms/SubHeader",
+            './SubHeader2': "./src/components/organisms/SubHeader2",
+            './FullProducts': './src/components/organisms/FullProducts'
+            },
+            shared: {
+                ...dependencies,
+                react: {
+                  singleton: true,
+                  import: 'react',
+                  shareScope: 'default',
+                  requiredVersion: dependencies.react,
+                },
+                'react-dom': {
+                  singleton: true,
+                  requiredVersion: dependencies['react-dom'],
+                },
+              },
+        }),
+    ]
 }
 
 module.exports = merge(commonConfig, devConfig);

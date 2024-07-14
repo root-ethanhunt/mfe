@@ -22,6 +22,11 @@ const devConfig = {
                 marketing: 'marketing@http://localhost:8081/remoteEntry.js',
                 shared: 'shared@http://localhost:8083/remoteEntry.js'
             },
+            exposes: {
+              "./useStore": "./src/hooks/useStore",
+              "./useStoreSelector": "./src/stores/useStoreSelector",
+              "./StoreProvider": "./src/hooks/StoreProvider",
+            },
             shared: {
                 ...dependencies,
                 react: {

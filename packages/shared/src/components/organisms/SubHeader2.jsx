@@ -5,7 +5,7 @@ import GroceryIcon from '@mui/icons-material/LocalGroceryStore';
 // import BeautyIcon from '@mui/icons-material/Beauty';
 import SportsIcon from '@mui/icons-material/Sports';
 import { Box, Card, CardContent, CardMedia, Typography, Button, IconButton, Grid, List, ListItem, ListItemText, ListItemAvatar, Avatar ,Divider} from '@mui/material';
-
+import  {useStoreSelector}  from "container/useStoreSelector";
 
 // Define the Category component
 const Category = ({ icon: Icon, label }) => (
@@ -29,10 +29,13 @@ const CategoriesSection = () => {
     // { label: 'Beauty', icon: BeautyIcon },
     // { label: 'Sports', icon: SportsIcon },
   ];
-
+  const count = useStoreSelector((state) => state.counter.value);
+  const v = useStoreSelector((state) => state);
+ console.log("inside shared",v)
   return (
     <Box sx={{ backgroundColor: '#f5f5f5', padding: 2 }}>
       <Grid container spacing={2} justifyContent="center">
+        <div>{count}</div>
         {categories.map((category, index) => (
           <Category key={index} icon={category.icon} label={category.label} />
         ))}

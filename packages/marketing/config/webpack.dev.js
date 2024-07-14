@@ -19,11 +19,21 @@ const devConfig = {
         new ModuleFederationPlugin({
             name: 'marketing',
             filename: 'remoteEntry.js',
+            remotes: {
+              container: 'container@http://localhost:8080/remoteEntry.js',
+              shared: 'shared@http://localhost:8083/remoteEntry.js'
+            },
             exposes: {
                 './MarketingApp': './src/bootstrap',
                 './MarketingApp1': './src/App',
                 './Landing': "./src/components/Landing",
-                './SomeComp': "./src/components/Jsjl"
+                './SomeComp': "./src/components/Jsjl",
+                './Counter': './src/components/Counter.jsx',
+                "./useStoreMarket": "./src/hooks/useStore",
+                "./useStoreSelectorMarket": "./src/stores/useStoreSelector",
+                "./StoreProviderMarket": "./src/hooks/StoreProvider",
+                "./marketingStore": "./src/stores/index",
+                './marketingSlice': "./src/stores/counterSlice"
             },
             shared: {
                 ...dependencies,

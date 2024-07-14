@@ -1,82 +1,115 @@
 import React, { useState } from 'react';
-import { Box, Grid, Typography, Button, Select, MenuItem, FormControl, InputLabel, Rating } from '@mui/material';
+import { Container, Grid, Typography, Button, Box, Rating, IconButton, TextField, Card, CardMedia, CardContent, Chip } from '@mui/material';
+import { Add, Remove } from '@mui/icons-material';
+// import { useSpring, animated } from 'react-spring';
 
-// Define the ItemInfo component
-const SingleItemDetail = ({ item }) => {
-  const [selectedSize, setSelectedSize] = useState('');
+const product = {
+  title: "Demon Slayer Front & Back Group Hoodie",
+  price: 60.0,
+  rating: 4.5,
+  reviews: 117,
+  color: "Stone",
+  sizes: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+  description: "The Violet Jujitsu Kaisen Short Sleeve Tee offers a standard fit with a classic crew neck and short sleeves, adorned with captivating front and back prints. Perfect for expressing your love for the series in style.",
+  image: "https://i.imgur.com/QkIa5tT.jpeg",
+  similarProducts: [
+    { title: "Casper Cargo Pocket Trackpant", price: 65.0, image: "https://i.imgur.com/QkIa5tT.jpeg" },
+    { title: "Miley Ripped Short", price: 45.0, image: "https://i.imgur.com/QkIa5tT.jpeg" },
+    { title: "Gudetama Oversized Tee", price: 35.0, image: "https://i.imgur.com/QkIa5tT.jpeg" },
+    { title: "My Melody Bow Oversized Hoodie", price: 55.0, image: "https://i.imgur.com/QkIa5tT.jpeg" }
+  ]
+};
+
+const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
+  // const fadeIn = useSpring({ from: { opacity: 0 }, to: { opacity: 1 }, config: { duration: 1000 } });
 
-  const handleSizeChange = (event) => {
-    setSelectedSize(event.target.value);
-  };
-
-  const handleQuantityChange = (event) => {
-    setQuantity(event.target.value);
+  const handleQuantityChange = (increment) => {
+    setQuantity(prevQuantity => Math.max(1, prevQuantity + increment));
   };
 
   return (
-    <Box sx={{ maxWidth: 1200, margin: 'auto', mt: 4, padding: 2 }}>
-      <Grid container spacing={4}>
-        <Grid item xs={6}>
-          <Box
-            component="img"
-            src={item.image.replace(/[\[\]"]/g, '')}
-            alt={item.title}
-            sx={{ width: '100%', height: 'auto', objectFit: 'contain' }}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h4" component="div" gutterBottom>
-            {item.title}
-          </Typography>
-          <Typography variant="h6" component="div" gutterBottom>
-            Price: ${item.price}
-          </Typography>
-          <Rating name="read-only" value={item.rating} readOnly />
-          <Typography variant="body2" color="text.secondary" gutterBottom>
-            {item.description}
-          </Typography>
-          <FormControl fullWidth sx={{ mb: 2 }}>
-            <InputLabel id="size-select-label">Size</InputLabel>
-            <Select
-              labelId="size-select-label"
-              id="size-select"
-              value={selectedSize}
-              label="Size"
-              onChange={handleSizeChange}
-            >
-              <MenuItem value=""><em>None</em></MenuItem>
-              {item.sizes.map((size) => (
-                <MenuItem key={size} value={size}>{size}</MenuItem>
+    // <animated.div style={fadeIn}>
+      <Container maxWidth="lg" sx={{ mt: 4 }}>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <Box
+              component="img"
+              src={product.image}
+              alt={product.title}
+              sx={{ width: '100%', borderRadius: 2, boxShadow: 3 }}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4" gutterBottom>
+              {product.title}
+            </Typography>
+            <Typography variant="h5" color="textSecondary" gutterBottom>
+              ${product.price}
+            </Typography>
+            <Box display="flex" alignItems="center" sx={{ mb: 2 }}>
+              <Rating value={product.rating} precision={0.5} readOnly />
+              <Typography variant="body2" sx={{ ml: 1 }}>
+                {product.reviews} reviews
+              </Typography>
+            </Box>
+            <Typography variant="h6" gutterBottom>Color: {product.color}</Typography>
+            <Box display="flex" alignItems="center" sx={{ mb: 2 }}>
+              {product.sizes.map(size => (
+                <Chip key={size} label={size} variant="outlined" clickable sx={{ mr: 1 }} />
               ))}
-            </Select>
-          </FormControl>
-          <FormControl fullWidth sx={{ mb: 2 }}>
-            <InputLabel id="quantity-select-label">Quantity</InputLabel>
-            <Select
-              labelId="quantity-select-label"
-              id="quantity-select"
-              value={quantity}
-              label="Quantity"
-              onChange={handleQuantityChange}
-            >
-              {[1, 2, 3, 4, 5].map((qty) => (
-                <MenuItem key={qty} value={qty}>{qty}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <Box sx={{ mt: "auto", display: "flex", gap:2}}>
-          <Button variant="contained" color="primary" sx={{ flexGrow: 2 }}>
-            Add to Cart
-          </Button>
-          <Button variant="contained" color="secondary" sx={{ flexGrow: 2 }}>
-            Buy Now
-          </Button>
-          </Box>
+            </Box>
+            <Box display="flex" alignItems="center" sx={{ mb: 2 }}>
+              <IconButton onClick={() => handleQuantityChange(-1)}>
+                <Remove />
+              </IconButton>
+              <TextField size="small" value={quantity} sx={{ width: '50px', mx: 1 }} inputProps={{ readOnly: true }} />
+              <IconButton onClick={() => handleQuantityChange(1)}>
+                <Add />
+              </IconButton>
+            </Box>
+            <Button variant="contained" color="primary" sx={{ mb: 2 }}>
+              Add to Cart
+            </Button>
+            <Typography variant="body1" gutterBottom>
+              {product.description}
+            </Typography>
+          </Grid>
         </Grid>
-      </Grid>
-    </Box>
+        <Box sx={{ mt: 4 }}>
+          <Typography variant="h5" gutterBottom>
+            Similar Products
+          </Typography>
+          <Grid container spacing={4}>
+            {product.similarProducts.map((item, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Card sx={{ borderRadius: 2, boxShadow: 3 }}>
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={item.image}
+                    alt={item.title}
+                    sx={{ transition: 'transform 0.3s', '&:hover': { transform: 'scale(1.05)' } }}
+                  />
+                  <CardContent>
+                    <Typography variant="body1" gutterBottom>
+                      {item.title}
+                    </Typography>
+                    <Typography variant="h6" color="textSecondary">
+                      ${item.price}
+                    </Typography>
+                    <Button variant="contained" color="primary" fullWidth>
+                      View
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Container>
+    // </animated.div>
   );
 };
 
-export default SingleItemDetail
+export default ProductPage;

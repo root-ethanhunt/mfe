@@ -14,6 +14,7 @@ const devConfig = {
         //     index: 'index.html'
         // }
         // static: './build'
+        historyApiFallback: true,
     },
     plugins: [
         new ModuleFederationPlugin({
@@ -29,7 +30,8 @@ const devConfig = {
             './Header': "./src/components/organisms/Header",
             './SubHeader': "./src/components/organisms/SubHeader",
             './SubHeader2': "./src/components/organisms/SubHeader2",
-            './FullProducts': './src/components/organisms/FullProducts'
+            './FullProducts': './src/components/organisms/FullProducts',
+            './Organisms': "./src/components/organisms"
             },
             shared: {
                 ...dependencies,

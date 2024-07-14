@@ -6,12 +6,17 @@ import Menu from "./components/atom/Menu"
 import Header from './components/organisms/Header'
 import SubHeader from './components/organisms/SubHeader.jsx' 
 import SubHeader2 from './components/organisms/SubHeader2.jsx' 
-
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import ItemList from './components/organisms/ItemList.jsx';
 import SingleItemDetail from './components/organisms/SingleItemDetail.jsx';
 import Cart from './components/organisms/Cart.jsx'
 import FullProducts from './components/organisms/FullProducts.jsx'
 import ItemInfo from './components/organisms/ItemInfo.jsx';
+import Login from './components/organisms/Login.jsx'
+import Signup from './components/organisms/SignUp.jsx'
+import Error from "./components/organisms/Error.jsx"
+import Footer from "./components/organisms/Footer.jsx"
+
 
 function App() {
   const item = {
@@ -30,9 +35,9 @@ function App() {
   
     fetchData()
 
-    // fetch('https://api.storerestapi.com/products')
-    //     .then(response => response.json())
-    //     .then(json => setItems(json.data))
+    fetch('https://api.storerestapi.com/products')
+        .then(response => response.json())
+        .then(json => setItems(json.data))
   },[])
 
 
@@ -77,17 +82,36 @@ function App() {
   
   return (
     <div className="App">
-      <TextField/>
+      {/* <TextField/>
       <ToggleButtonGroup/>
       <Menu/>
       <Header/>
       <SubHeader/>
-      <SubHeader2/>
+      <SubHeader2/> */}
       {/* <ItemList/> */}
-      <ItemInfo/>
+      {/* <ItemInfo/> */}
       {/* <Cart items={cartItems} onRemoveItem={handleRemoveItem} /> */}
-      <Cart items={cartItems} onRemoveItem={handleRemoveItem} onQuantityChange={handleQuantityChange} />
+      {/* <Cart items={cartItems} onRemoveItem={handleRemoveItem} onQuantityChange={handleQuantityChange} />
       <FullProducts/>
+      <Login/>
+      <Signup/> */}
+       <BrowserRouter>
+           <Header />
+           <hr></hr>
+           <SubHeader2 />
+           {/* <FullProducts/> */}
+           <SingleItemDetail item={item}/>
+          <Routes>
+            <Route exect path="/products" element={<ItemList/>} />
+            <Route path="/" element={<ItemList/>} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/signup" element={<Signup/>} />
+
+            <Route path="*" element={<Error/>} />
+            {/* <Route path="/some" element={<MarketingApp />} /> */}
+          </Routes>
+          <Footer/>
+        </BrowserRouter>
       
     </div>
   );

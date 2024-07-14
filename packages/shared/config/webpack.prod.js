@@ -28,6 +28,7 @@ const prodconfig = {
                 './SubHeader': "./src/components/organisms/SubHeader",
                 './SubHeader2': "./src/components/organisms/SubHeader2",
                 './FullProducts': './src/components/organisms/FullProducts',
+                './Organisms': "./src/components/organisms",
             },
             shared: {
                 ...dependencies,

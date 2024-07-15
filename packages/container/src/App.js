@@ -17,12 +17,6 @@ const MarketingApp = React.lazy(() => import("./components/MarketingApp.js"));
 // const Counter2 = React.lazy(() => import("./components/Counter.jsx"));
 
 
-// const RemoteButton = React.lazy(() => import("Remote/Button"));
-// console.log(Header);
-// console.log(SubHeader);
-// console.log('Counter',Counter)
-// console.log(Products)
-
 
 function App() {
   return (

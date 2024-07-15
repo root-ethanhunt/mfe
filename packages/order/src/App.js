@@ -6,6 +6,7 @@ import Pricing from './components/Pricing';
 import Some from './components/Jsjl'
 
 
+
 function App() {
   console.log("hiii")
   return (

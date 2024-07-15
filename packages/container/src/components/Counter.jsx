@@ -1,8 +1,8 @@
 import React from 'react'
 // import { useSelector, useDispatch } from 'react-redux'
 // import { decrement, increment } from './counterSlice'
-import useStore from "marketing/useStoreMarket";
-import  {useStoreSelector}  from "marketing/useStoreSelectorMarket";
+import useStore from "order/useStoreMarket";
+import  {useStoreSelector}  from "order/useStoreSelectorMarket";
 // const useStore = React.lazy(() => import("container/useStore"));
 // const useStoreSelector = React.lazy(() => import("container/useStoreSelector"));
 
@@ -20,7 +20,7 @@ const {
 
   return (
     <div>
-      <div>From the marketing MFE</div>
+      <div>From the order MFE</div>
       <div>
         <button
           aria-label="Increment value"

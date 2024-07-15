@@ -96,9 +96,9 @@ function App() {
       <Login/>
       <Signup/> */}
        <BrowserRouter>
-           <Header />
+           {/* <Header />
            <hr></hr>
-           <SubHeader2 />
+           <SubHeader2 /> */}
            {/* <FullProducts/> */}
            <SingleItemDetail item={item}/>
           <Routes>
@@ -106,7 +106,7 @@ function App() {
             <Route path="/" element={<ItemList/>} />
             <Route path="/login" element={<Login/>} />
             <Route path="/signup" element={<Signup/>} />
-
+            <Route path="/cart" element={<Cart items={cartItems} onRemoveItem={handleRemoveItem} onQuantityChange={handleQuantityChange} />}/>
             <Route path="*" element={<Error/>} />
             {/* <Route path="/some" element={<MarketingApp />} /> */}
           </Routes>

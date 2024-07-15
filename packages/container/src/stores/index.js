@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './counterSlice';
-import marketingSlice from 'marketing/marketingSlice'
-// import {marketingStore} from "marketing/marketingStore"
+import marketingSlice from 'order/marketingSlice'
+// import {marketingStore} from "order/marketingStore"
 
 export const store = configureStore({
   reducer: {

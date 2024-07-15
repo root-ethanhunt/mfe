@@ -21,7 +21,7 @@ const devConfig = {
             name: 'shared',
             filename: 'remoteEntry.js',
             remotes: {
-                marketing: 'marketing@http://localhost:8081/remoteEntry.js',
+                marketing: 'order@http://localhost:8081/remoteEntry.js',
                 container: 'container@http://localhost:8080/remoteEntry.js'
             },
             exposes: {

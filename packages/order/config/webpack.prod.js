@@ -11,24 +11,27 @@ const prodconfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: '/shared/latest/'
+        publicPath: '/order/latest/'
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'shared',
+            name: 'order',
             filename: 'remoteEntry.js',
             remotes: {
-              marketing: `order@${domain}/order/latest/remoteEntry.js`,
               container: `container@${domain}/container/latest/remoteEntry.js`,
-          },
-            exposes: {
-                './SharedApp': './src/bootstrap',
-                './SharedApp1': './src/App',
-                './Header': "./src/components/organisms/Header",
-                './SubHeader': "./src/components/organisms/SubHeader",
-                './SubHeader2': "./src/components/organisms/SubHeader2",
-                './FullProducts': './src/components/organisms/FullProducts',
-                './Organisms': "./src/components/organisms",
+              shared: `shared@${domain}/shared/latest/remoteEntry.js`
+            },
+            exposes:{
+              './MarketingApp': './src/bootstrap',
+              './MarketingApp1': './src/App',
+              './Landing': "./src/components/Landing",
+              './SomeComp': "./src/components/Jsjl",
+              './Counter': './src/components/Counter.jsx',
+              "./useStoreMarket": "./src/hooks/useStore",
+              "./useStoreSelectorMarket": "./src/stores/useStoreSelector",
+              "./StoreProviderMarket": "./src/hooks/StoreProvider",
+              "./marketingStore": "./src/stores/index",
+              './marketingSlice': "./src/stores/counterSlice"
             },
             shared: {
                 ...dependencies,

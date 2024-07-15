@@ -11,28 +11,19 @@ const prodconfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: '/marketing/latest/'
+        publicPath: '/auth/latest/'
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'marketing',
+            name: 'auth',
             filename: 'remoteEntry.js',
             remotes: {
               container: `container@${domain}/container/latest/remoteEntry.js`,
               shared: `shared@${domain}/shared/latest/remoteEntry.js`
             },
-            exposes:{
-              './MarketingApp': './src/bootstrap',
-              './MarketingApp1': './src/App',
-              './Landing': "./src/components/Landing",
-              './SomeComp': "./src/components/Jsjl",
-              './Counter': './src/components/Counter.jsx',
-              "./useStoreMarket": "./src/hooks/useStore",
-              "./useStoreSelectorMarket": "./src/stores/useStoreSelector",
-              "./StoreProviderMarket": "./src/hooks/StoreProvider",
-              "./marketingStore": "./src/stores/index",
-              './marketingSlice': "./src/stores/counterSlice"
-            },
+            // exposes:{
+             
+            // },
             shared: {
                 ...dependencies,
                 react: {

@@ -17,7 +17,7 @@ const devConfig = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'marketing',
+            name: 'order',
             filename: 'remoteEntry.js',
             remotes: {
               container: 'container@http://localhost:8080/remoteEntry.js',

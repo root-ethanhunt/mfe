@@ -5,29 +5,27 @@ const { dependencies } = require('../package.json');
 const path = require('path');
 
 const devConfig = {
-    // entry: './src/index.js',
+    entry: './src/index.js',
     mode: 'development',
     devServer: {
-        // contentBase: path.join(__dirname, 'dist'),
-        port: 8080,
+        // contentBase: path.join(__dirname, 'build'),
+        port: 8082,
         // historyApiFallback: {
         //     index: 'index.html'
         // }
-        historyApiFallback: true,
+        // static: './build'
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'container',
+            name: 'auth',
             filename: 'remoteEntry.js',
             remotes: {
-                order: 'order@http://localhost:8081/remoteEntry.js',
-                shared: 'shared@http://localhost:8083/remoteEntry.js'
+              container: 'container@http://localhost:8080/remoteEntry.js',
+              shared: 'shared@http://localhost:8083/remoteEntry.js'
             },
-            exposes: {
-              "./useStore": "./src/hooks/useStore",
-              "./useStoreSelector": "./src/stores/useStoreSelector",
-              "./StoreProvider": "./src/hooks/StoreProvider",
-            },
+            // exposes: {
+               
+            // },
             shared: {
                 ...dependencies,
                 react: {

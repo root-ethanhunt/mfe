@@ -1,7 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { store } from "../stores/index";
-import {marketingStore} from "marketing/marketingStore"
+import {marketingStore} from "order/marketingStore"
 
 
 // const storeObj ={...store , ...marketingStore};

@@ -1,11 +1,11 @@
 import React, { useRef, useEffect} from 'react'
-import  MarketingAppcomponents  from 'marketing/MarketingApp';
-import KuchBhi from 'marketing/SomeComp';
-import Landing from 'marketing/Landing';
-import MarketingAppcomponents1 from 'marketing/MarketingApp1';
-import Counter from "marketing/Counter";
+import  MarketingAppcomponents  from 'order/MarketingApp';
+import KuchBhi from 'order/SomeComp';
+import Landing from 'order/Landing';
+import MarketingAppcomponents1 from 'order/MarketingApp1';
+import Counter from "order/Counter";
 // debugger
-// const MarketingAppcomponents = React.lazy(() => import("marketing/MarketingApp"));
+// const MarketingAppcomponents = React.lazy(() => import("order/MarketingApp"));
 console.log(KuchBhi);
  console.log(MarketingAppcomponents);
  console.log(Landing);

@@ -8,7 +8,7 @@ import Some from './components/Jsjl'
 
 
 function App() {
-  console.log("hiii")
+  console.log("hiiiii")
   return (
     <div className="App">
       <div>

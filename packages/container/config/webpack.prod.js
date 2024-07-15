@@ -16,7 +16,7 @@ const prodconfig = {
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
-                marketing: `order@${domain}/order/latest/remoteEntry.js`,
+                order: `order@${domain}/order/latest/remoteEntry.js`,
                 shared: `shared@${domain}/shared/latest/remoteEntry.js`
             },
             exposes: {

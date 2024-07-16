@@ -25,7 +25,8 @@ function App() {
         <ErrorBoundary>
            <BrowserRouter>
            <Header />
-           <hr></hr>
+           {/* <hr></hr>
+           <br/> */}
            <SubHeader />
           <Routes>
             <Route exect path="/products" element={<Products/>} />

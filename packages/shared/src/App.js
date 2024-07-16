@@ -16,6 +16,7 @@ import Login from './components/organisms/Login.jsx'
 import Signup from './components/organisms/SignUp.jsx'
 import Error from "./components/organisms/Error.jsx"
 import Footer from "./components/organisms/Footer.jsx"
+import BannerHeader from "./components/organisms/BannerHeader.jsx"
 
 
 function App() {
@@ -96,9 +97,10 @@ function App() {
       <Login/>
       <Signup/> */}
        <BrowserRouter>
-           {/* <Header />
+       {/* <BannerHeader/> */}
+           <Header />
            <hr></hr>
-           <SubHeader2 /> */}
+           <SubHeader2 />
            {/* <FullProducts/> */}
            <SingleItemDetail item={item}/>
           <Routes>

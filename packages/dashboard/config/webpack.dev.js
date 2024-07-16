@@ -9,7 +9,7 @@ const devConfig = {
     mode: 'development',
     devServer: {
         // contentBase: path.join(__dirname, 'build'),
-        port: 8083,
+        port: 8085,
         // historyApiFallback: {
         //     index: 'index.html'
         // }
@@ -18,21 +18,21 @@ const devConfig = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'shared',
+            name: 'dashboard',
             filename: 'remoteEntry.js',
             remotes: {
                 order: 'order@http://localhost:8081/remoteEntry.js',
                 container: 'container@http://localhost:8080/remoteEntry.js'
             },
-            exposes: {
-            './SharedApp': './src/bootstrap',
-            './SharedApp1': './src/App',
-            './Header': "./src/components/organisms/Header",
-            './SubHeader': "./src/components/organisms/SubHeader",
-            './SubHeader2': "./src/components/organisms/SubHeader2",
-            './FullProducts': './src/components/organisms/FullProducts',
-            './Organisms': "./src/components/organisms"
-            },
+            // exposes: {
+            // './SharedApp': './src/bootstrap',
+            // './SharedApp1': './src/App',
+            // './Header': "./src/components/organisms/Header",
+            // './SubHeader': "./src/components/organisms/SubHeader",
+            // './SubHeader2': "./src/components/organisms/SubHeader2",
+            // './FullProducts': './src/components/organisms/FullProducts',
+            // './Organisms': "./src/components/organisms"
+            // },
             shared: {
                 ...dependencies,
                 react: {

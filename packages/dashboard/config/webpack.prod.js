@@ -11,25 +11,25 @@ const prodconfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: '/shared/latest/'
+        publicPath: '/dshboard/latest/'
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'shared',
+            name: 'dashboard',
             filename: 'remoteEntry.js',
             remotes: {
               order: `order@${domain}/order/latest/remoteEntry.js`,
               container: `container@${domain}/container/latest/remoteEntry.js`,
           },
-            exposes: {
-                './SharedApp': './src/bootstrap',
-                './SharedApp1': './src/App',
-                './Header': "./src/components/organisms/Header",
-                './SubHeader': "./src/components/organisms/SubHeader",
-                './SubHeader2': "./src/components/organisms/SubHeader2",
-                './FullProducts': './src/components/organisms/FullProducts',
-                './Organisms': "./src/components/organisms",
-            },
+            // exposes: {
+            //     './SharedApp': './src/bootstrap',
+            //     './SharedApp1': './src/App',
+            //     './Header': "./src/components/organisms/Header",
+            //     './SubHeader': "./src/components/organisms/SubHeader",
+            //     './SubHeader2': "./src/components/organisms/SubHeader2",
+            //     './FullProducts': './src/components/organisms/FullProducts',
+            //     './Organisms': "./src/components/organisms",
+            // },
             shared: {
                 ...dependencies,
                 react: {

@@ -251,7 +251,7 @@ const Navbar = () => {
   return (
     <>
       <AppBar
-        // position="fixed"
+        position="fixed"
         sx={{
           backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.7)',
           backdropFilter: 'blur(15px)',
@@ -271,13 +271,16 @@ const Navbar = () => {
               color: 'text.primary',
             }}
           >
-            <img src="https://furns-react.netlify.app/_next/image?url=%2Fimages%2Flogo%2Flogo.png&w=1920&q=75" alt="Logo" style={{ height: '30px', marginRight: '10px' }} />
+            Apni Dukan
+            {/* <img src="https://furns-react.netlify.app/_next/image?url=%2Fimages%2Flogo%2Flogo.png&w=1920&q=75" alt="Logo" style={{ height: '30px', marginRight: '10px' }} /> */}
           </Typography>
-          <Search>
+          <Search color="inherit">
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
+            //  color="inherit"
+              sx={{ color: '#363434' }}
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />

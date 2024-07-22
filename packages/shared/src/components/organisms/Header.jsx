@@ -75,6 +75,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import MenuItems from "../molecules/MenuItems"
 import { styled, alpha } from '@mui/material/styles';
 
 const Search = styled('div')(({ theme }) => ({
@@ -86,7 +87,7 @@ const Search = styled('div')(({ theme }) => ({
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: '100%',
+  // width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(3),
     width: 'auto',
@@ -307,7 +308,7 @@ const Navbar = () => {
             >
               <AccountCircle />
             </IconButton>
-            <Menu
+            {/* <Menu
               id="menu-appbar"
               anchorEl={anchorEl}
               anchorOrigin={{
@@ -325,7 +326,8 @@ const Navbar = () => {
               <MenuItem onClick={handleClose}>Sign In</MenuItem>
               <MenuItem onClick={handleClose}>Cart</MenuItem>
               <MenuItem onClick={handleClose}>Wishlist</MenuItem>
-            </Menu>
+            </Menu> */}
+            <MenuItems anchorEl={anchorEl} open={open}  handleClose={handleClose}/>
           </div>
         </Toolbar>
       </AppBar>

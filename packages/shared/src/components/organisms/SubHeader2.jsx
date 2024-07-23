@@ -27,8 +27,14 @@ const SubHeader = () => {
     // You can add logic here to handle category changes, such as fetching data or updating state
   };
 
+  const handleOnClick = (e) =>{
+    console.log(e.target.name)
+  }
+
   return (
-    <AppBar position="static" color="default" elevation={0} sx={{ backgroundColor: '#363434', borderBottom: '1px solid #ddd' ,
+    <AppBar position="static" color="default" elevation={0} sx={{ 
+      backgroundColor: '#363434', 
+      borderBottom: '1px solid #ddd' ,
       marginTop: '60px', 
       direction:"row",
       justifyContent: { xs: 'flex-start', sm: 'center' }, // Responsive justifyContent
@@ -46,7 +52,7 @@ const SubHeader = () => {
         sx={{ '& .MuiTabs-scroller': { overflowX: 'auto' }, '& .MuiTab-root': { minWidth: 'auto', textTransform: 'capitalize' } }}
       >
         {categories.map((category) => (
-          <Tab key={category.id} label={category.label} icon={category.icon} sx={{ fontSize: '1rem', fontWeight: '600', padding: '10px 20px', color: 'rgba(239, 236, 236, 0.7)' }} />
+          <Tab key={category.id} label={category.label} name={category.label} icon={category.icon} sx={{ fontSize: '1rem', fontWeight: '600', padding: '10px 20px', color: 'rgba(239, 236, 236, 0.7)' }}onClick={handleOnClick} />
         ))}
       </Tabs>
     </AppBar>

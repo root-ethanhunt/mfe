@@ -2,7 +2,16 @@ import * as React from "react";
 import {MenuItem, Menu} from '@mui/material';
 
 
-export default function MenuItems({anchorEl, open, handleClose}) {
+export default function MenuItems({anchorEl, open, handleClose, setAnchorEl}) {
+
+    const handleClick = (e)=>{
+        // console.log(e,"MenuList1")
+        // console.log(e.target,"MenuList2")
+        // console.log(e.target.name,"MenuList3")
+        // console.log(e.target.getAttribute("name"), "MenuList3");
+
+        setAnchorEl(null)
+    }
   
   return (
     <div>
@@ -21,9 +30,12 @@ export default function MenuItems({anchorEl, open, handleClose}) {
        open={open}
        onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem name="profile" onClick={handleClick}>Profile</MenuItem>
+        <MenuItem onClick={handleClick}>My account</MenuItem>
+        <MenuItem onClick={handleClick}>About</MenuItem>
+        <MenuItem onClick={handleClick}>Cart</MenuItem>
+        <MenuItem onClick={handleClick}>Wishlist</MenuItem>
+        <MenuItem onClick={handleClick}>Logout</MenuItem>
       </Menu>
     </div>
   );
